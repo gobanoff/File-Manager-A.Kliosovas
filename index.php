@@ -133,10 +133,6 @@ margin-left: 7px;}
 
 
 
-
-
-
-
 function delete($path) {
     if (file_exists($path)) {
         if (is_file($path)) {
@@ -166,9 +162,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['path'
 
 ?>
 
-
-
-    
+ 
 <script>
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('bi-trash')) {
@@ -184,36 +178,26 @@ document.addEventListener('click', function (e) {
     }
 });
 
-
-
-
-
-
 function checkDelete() {
-    const checkboxes = document.querySelectorAll('#d:checked');
-    const filesToDelete = [];
+    const boxes = document.querySelectorAll('#d:checked');
+    const files = [];
 
-    checkboxes.forEach(checkbox => {
-        const deletePath = checkbox.getAttribute('data-delete');
-        if (deletePath) {
-            filesToDelete.push(encodeURIComponent(deletePath));
+    boxes.forEach(box => {
+        const dlt = box.getAttribute('data-delete');
+        if (dlt) {
+            files.push(encodeURIComponent(dlt));
         }
     });
 
-    if (filesToDelete.length > 0) {
+    if (files.length > 0) {
         const conf = confirm('Are you sure you want to delete the selected files and folders?');
         if (conf) {
-            const deletePaths = filesToDelete.join('&path=');
+            const delPath = files.join('&path=');
             const action = 'delete';
-            window.location.href = `index.php?action=${action}&path=${deletePaths}`;
+            window.location.href = `index.php?action=${action}&path=${delPath}`;
         }
     }
 }
-
-
-
-
-
 
 function checkBoxes(cb) {
         cb.target.checked = !cb.target.checked;
@@ -221,8 +205,6 @@ function checkBoxes(cb) {
             box.checked = !box.checked;
         })
     }
-
-
 
 </script>
 
