@@ -1,0 +1,77 @@
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css);
+@import url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css);
+
+body {
+  margin: 0;
+}
+.form {
+  margin-left: 800px;
+  margin-top: 100px;
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+}
+th {
+  border: 2px solid #d1d3dd;
+  line-height: 35px;
+  padding-left: 5px;
+}
+td {
+  border: 2px solid #d1d3dd;
+  line-height: 30px;
+  padding-left: 5px;
+}
+.btn-danger {
+  margin-left: 20px;
+}
+table .butt .bi {
+  background: #0524a1;
+  font-size: 22px;
+  margin-left: 15px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.file-icon {
+  font-size: 30px;
+}
+
+.bi-file-earmark {
+  background: rgba(8, 247, 12, 0.382);
+  border-radius: 10px;
+}
+
+.bi-arrow-left-circle {
+  background: rgba(8, 183, 247, 0.382);
+  border-radius: 20px;
+}
+
+.bi-folder {
+  background: rgba(232, 232, 9, 0.378);
+  border-radius: 10px;
+}
+i {
+  background: #ec25075c;
+  color: rgb(7, 7, 7);
+  border-radius: 10px;
+}
+.hd {
+  font-size: 50px;
+  color: rgb(2, 20, 181);
+  padding-left: 800px;
+  padding-top: 20px;
+  font-weight: 800;
+}
+#d {
+  margin-left: 10px;
+}
+.h {
+  margin-left: 10px;
+}
+
+.btn-info {
+  color: rgb(17, 1, 1);
+  font-weight: 600;
+  padding-left: 5px;
+}
