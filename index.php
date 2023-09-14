@@ -29,7 +29,7 @@ margin-left: 7px;}
  }
  function query()
  {
-     $lnk = isset($_GET['pg']) ? $_GET['pg'] : '';
+     $lnk = isset($_GET['lnk']) ? $_GET['lnk'] : '';
      $path = isset($_GET['path']) ? $_GET['path'] : '';
  
      return [$lnk, $path];
