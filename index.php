@@ -41,14 +41,14 @@ margin-left: 7px;}
  
  
  
-    echo' <h1 class="hd">File manager</h1>   <button class="btn btn-danger mb-3"onclick=checkDelete(event)>Delete </button>
+    echo' <h1 class="hd">File manager</h1>   <button class="btn btn-danger mb-3"onclick=checkDelete()>Delete </button>
     <a href="newfile.php"<button class="btn btn-info mb-3">New file </button> </a>
     <a href="newfolder.php"<button class="btn btn-info mb-3">New Folder </button> </a>  
   
  
     <table class="table">
      <thead>
-          <tr>     <th><input type="checkbox"class="h"id="d"onclick="checkBoxes(event)"></th> 
+          <tr>     <th><input type="checkbox"id="d"onclick="checkBoxes(event)"></th> 
           <th>Name</th>
           <th>Size</th>
           <th>Modified</th>
@@ -106,7 +106,7 @@ margin-left: 7px;}
 
       echo "<tr><td>" . (($name !== '..'and !in_array($name ,['index.php','catch.php','save.php',
       'skaičius.txt','style.css','file_manager.php','createfile.php','createfolder.php','newfile.php','newfolder.php','README.md','rename.php','.git'])) ? 
-      "<input type='checkbox'id='d'data-delete='" . $dr . "'>" : '') . "</td>
+      "<input type='checkbox'class='h'data-delete='" . $dr ."'>" : '') . "</td>
       
       
        <td> <a href='" . $link . "'  class='text-decoration-none'> <i class='file-icon bi " . $icon . "'></i> " . $name . " </a> </td>
@@ -183,8 +183,8 @@ document.addEventListener('click', function (e) {
     }
 });
 
-function checkDelete(e) {
-    const boxes = document.querySelectorAll('#d:checked');
+function checkDelete() {
+    const boxes = document.querySelectorAll('.h:checked');
     const files = [];
 
     boxes.forEach(box => {
@@ -206,12 +206,11 @@ function checkDelete(e) {
 
 
 
-function checkBoxes(cb) {
-        cb.target.checked = !cb.target.checked;
-        document.querySelectorAll('#d').forEach(box => {
-            box.checked = !box.checked;
-        })
-    }
+    function checkBoxes(cb) {
+    document.querySelectorAll('.h').forEach(box => {
+        box.checked = cb.target.checked;
+    });
+}
 
 </script>
 
