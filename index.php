@@ -41,7 +41,7 @@ margin-left: 7px;}
  
  
  
-    echo' <h1 class="hd">File manager</h1>   <button class="btn btn-danger mb-3"onclick=checkDelete()>Delete </button>
+    echo' <h1 class="hd">File manager</h1>   <button class="btn btn-danger mb-3"onclick=checkDelete(event)>Delete </button>
     <a href="newfile.php"<button class="btn btn-info mb-3">New file </button> </a>
     <a href="newfolder.php"<button class="btn btn-info mb-3">New Folder </button> </a>  
   
@@ -183,7 +183,7 @@ document.addEventListener('click', function (e) {
     }
 });
 
-function checkDelete() {
+function checkDelete(e) {
     const boxes = document.querySelectorAll('#d:checked');
     const files = [];
 
