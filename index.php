@@ -66,7 +66,7 @@ margin-left: 7px;}
              
         $size = filesize($dr); $mod = filemtime($dr);
 
-        /*if ($size === 0) {$size = 'Empty';}*/
+       
        if ($name === '..'){$size = ''; }
         elseif ($size > 1000) {$size = ($size / 1000) . ' KB';}
         elseif ($size < 1000 && $size > 0) {$size = $size . ' B';}
