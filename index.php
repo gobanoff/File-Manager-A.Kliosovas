@@ -10,7 +10,7 @@
 </head>
 
 <body><style>
-.btn-info{color: rgb(26, 1, 1);font-weight: 600;
+.btn-info{font-weight: 600;
 margin-left: 7px;}
 </style>
   <?php 
@@ -66,11 +66,14 @@ margin-left: 7px;}
              
         $size = filesize($dr); $mod = filemtime($dr);
 
-        if ($size === 0) {$size = 'Empty';}
-        elseif ($name === '..'){$size = ''; }
+        /*if ($size === 0) {$size = 'Empty';}*/
+       if ($name === '..'){$size = ''; }
         elseif ($size > 1000) {$size = ($size / 1000) . ' KB';}
-
         elseif ($size < 1000 && $size > 0) {$size = $size . ' B';}
+
+        elseif ((!array_key_exists('extension', $pathInfo) and $name !== '..')){
+            $size = 'Folder';
+        }
 
         $ext = [ 'pdf' => 'bi-filetype-pdf', 'css' => 'bi-filetype-css',
           'mp3' => 'bi-filetype-mp3', 'js' => 'bi-filetype-js',
@@ -101,7 +104,9 @@ margin-left: 7px;}
 
 
 
-      echo "<tr><td><input type='checkbox'id='d'data-delete='" . $dr . "'></td>
+      echo "<tr><td>" . (($name !== '..'and !in_array($name ,['index.php','catch.php','save.php',
+      'skaičius.txt','style.css','file_manager.php','createfile.php','createfolder.php','newfile.php','newfolder.php','README.md','rename.php','.git'])) ? 
+      "<input type='checkbox'id='d'data-delete='" . $dr . "'>" : '') . "</td>
       
       
        <td> <a href='" . $link . "'  class='text-decoration-none'> <i class='file-icon bi " . $icon . "'></i> " . $name . " </a> </td>
@@ -109,7 +114,7 @@ margin-left: 7px;}
         <td>" . ($name !== '..' ?date("Y/m/d  H:i  ", $mod): '') ."</td>
         <td>Aleksei File Manager</td>
         <td class='butt'> " . (($name !== '..'and !in_array($name ,['.git','index.php','catch.php','save.php',
-        'skaičius.txt','style.css','file_manager.php','createfile.php','newfile.php','newfolder.php','README.md'])) ?
+        'skaičius.txt','style.css','createfile.php','createfolder.php','newfile.php','newfolder.php','README.md','rename.php'])) ?
 
         " <a href='#'  class='text-decoration-none'delete='" . $dr . "'>
         <i class='bi bi-trash'></i>
@@ -198,6 +203,8 @@ function checkDelete() {
         }
     }
 }
+
+
 
 function checkBoxes(cb) {
         cb.target.checked = !cb.target.checked;

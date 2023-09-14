@@ -17,26 +17,28 @@ echo '<a href="index.php"<button class="btn btn-danger mt-5 mb-5 ">Back </button
 ?>
 
 <?php
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
-    $filename = $_POST['name'];
-    $path = dirname(__FILE__);
+    $foldername = $_POST['name'];
+    $path = dirname(__FILE__); 
     
-    
-    if (!file_exists($path . '/' . $filename)) {
-       
-        if (touch($path . '/' . $filename)) {
+  
+    $folderPath = $path . '/' . $foldername;
+    if (!file_exists($folderPath)) {
+      
+        if (mkdir($folderPath)) { 
             header('Location: index.php');
             exit();
         } else {
-            echo 'Failed to create the folder.';
+            echo 'Nepavyko sukurti aplanko.';
         }
     } else {
-        echo 'Folder with this name already exists.';
+        echo 'Aplankas su šiuo pavadinimu jau egzistuoja.';
     }
 }
+
+
 ?>
-<form method="POST" action="createfile.php">
+<form method="POST" action="createfolder.php">
         <input type="text" name="name" class="form" placeholder="Enter folder name" required>
         <input type="submit" class="btn btn-primary" value="Create">
 
